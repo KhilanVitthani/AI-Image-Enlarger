@@ -6,7 +6,6 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:yodo1mas/Yodo1MAS.dart';
 
 import '../../../../constants/sizeConstant.dart';
 import '../../../../main.dart';
@@ -30,24 +29,6 @@ class MainScreenController extends GetxController {
       print(myImage);
       myImage.value = myImage1.reversed.toList();
     }
-
-    Yodo1MAS.instance.setInterstitialListener(
-      (event, message) {
-        switch (event) {
-          case Yodo1MAS.AD_EVENT_OPENED:
-            print('Interstitial AD_EVENT_OPENED');
-            break;
-          case Yodo1MAS.AD_EVENT_ERROR:
-            print('Interstitial AD_EVENT_ERROR' + message);
-            break;
-          case Yodo1MAS.AD_EVENT_CLOSED:
-            getIt<TimerService>().verifyTimer();
-            SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-            Get.back();
-            break;
-        }
-      },
-    );
     addImage();
     // loadAdd();
     super.onInit();

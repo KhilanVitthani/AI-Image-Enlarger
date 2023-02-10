@@ -10,8 +10,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:yodo1mas/Yodo1MasBannerAd.dart';
-import 'package:yodo1mas/Yodo1MasNativeAd.dart';
+// import 'package:yodo1mas/Yodo1MasBannerAd.dart';
+// import 'package:yodo1mas/Yodo1MasNativeAd.dart';
 
 import '../../../../main.dart';
 import '../../../../utilities/ad_service.dart';
@@ -93,7 +93,6 @@ class HomeView extends GetWidget<HomeController> {
                       },
                       context: context,
                       title: "AI Cartoonizer",
-                      subtitle: "Turn everything into a cartoon!",
                       image: "AiCartoonizer.png"),
                   SizedBox(
                     height: MySize.getHeight(20),
@@ -109,16 +108,6 @@ class HomeView extends GetWidget<HomeController> {
                   SizedBox(
                     height: MySize.getHeight(20),
                   ),
-                  (controller.connectivityResult == ConnectionState.none)
-                      ? SizedBox()
-                      : Yodo1MASNativeAd(
-                          size: NativeSize.NativeSmall,
-                          backgroundColor: "WHITE",
-                          onLoad: () => print('Native Ad loaded:'),
-                          onClosed: () => print('Native Ad clicked:'),
-                          onLoadFailed: (message) =>
-                              print('Native Ad $message'),
-                        ),
 
                   SizedBox(
                     height: MySize.getHeight(20),
@@ -189,11 +178,6 @@ class HomeView extends GetWidget<HomeController> {
                   SizedBox(
                     height: MySize.getHeight(20),
                   ),
-                  (controller.connectivityResult == ConnectionState.none)
-                      ? SizedBox()
-                      : Yodo1MASBannerAd(
-                          size: BannerSize.Banner,
-                        ),
                   SizedBox(
                     height: MySize.getHeight(20),
                   ),
@@ -219,14 +203,6 @@ class HomeView extends GetWidget<HomeController> {
                   SizedBox(
                     height: MySize.getHeight(20),
                   ),
-                  ImageButton(
-                      onTap: () {
-                        controller.isFromFaceRetouch.value = true;
-                        uploadImage(context);
-                      },
-                      context: context,
-                      title: "AI Face Retouch",
-                      image: "AiFaceRetouch.png"),
                 ],
               ),
             ),

@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:yodo1mas/Yodo1MasBannerAd.dart';
 
 import '../../../../constants/sizeConstant.dart';
 import '../../../../main.dart';
@@ -110,11 +109,6 @@ class MyCollectionPageView extends GetWidget<MyCollectionPageController> {
                   },
                 ),
               ),
-              (controller.connectivityResult == ConnectionState.none)
-                  ? SizedBox()
-                  : Yodo1MASBannerAd(
-                      size: BannerSize.Banner,
-                    ),
             ],
           ),
         ),
